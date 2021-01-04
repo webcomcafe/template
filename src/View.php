@@ -9,14 +9,14 @@ class View
     /**
      * @var array $config
      */
-    private $config = [];
+    private array $config = [];
 
     /**
      * @var Layout $layout
      */
-    private $layout;
+    private Layout $layout;
 
-    private $sections = [];
+    private array $sections = [];
 
     /**
      * View constructor.
@@ -85,7 +85,7 @@ class View
         $this->config['dir'][1] = str_replace('.', DS, $this->config['dir'][1]);
         $tpl = str_replace('.', DS, $tpl);
         $path = implode(DS, $this->config['dir']);
-        $dir = trim($path,'/');
+        $dir = rtrim($path,'/');
         $ext = $this->config['ext'];
         return $dir.DS.$tpl.'.'.$ext;
     }

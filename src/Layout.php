@@ -11,14 +11,14 @@ class Layout
     /**
      * @var string $name
      */
-    private $name;
+    private string $name;
 
     /**
      * @var array $config
      */
-    private $config;
+    private array $config;
 
-    private $contents = [
+    private array $contents = [
         'page' => '',
         'styles' => '',
         'scripts' => '',
