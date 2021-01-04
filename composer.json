@@ -1,0 +1,19 @@
+{
+  "name": "webcomcafe/template",
+  "authors": [
+    {
+      "name": "Airton Lopes",
+      "email": "airtonlopes_@hotmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.3|8.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Webcomcafe\\Templating\\": "src/",
+      "App\\": "app/"
+    },
+    "files": ["src/Support/helpers.php"]
+  }
+}
