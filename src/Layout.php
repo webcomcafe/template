@@ -38,7 +38,6 @@ class Layout
 
     private function getBaseDir(string $file)
     {
-        //$path = implode(DS, $this->config['dir']).DS.$file;
         $path = $this->config['dir'].DS.$file;
         $file = $path.'.'.$this->config['ext'];
         return $file;
@@ -104,7 +103,7 @@ class Layout
 
     public function asset(string $resource)
     {
-        $resource = $this->config['url'].'/'.$resource;
+        $resource = $this->config['url'].'/assets/'.$resource;
         return $resource;
     }
 
