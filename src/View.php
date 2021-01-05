@@ -27,6 +27,15 @@ class View
         $this->config += $config;
     }
 
+    /**
+     * @param array $config
+     * @return View
+     */
+    public static function config(array $config) : View
+    {
+        return new View($config);
+    }
+
 
     /**
      * @param string $tpl
@@ -49,8 +58,7 @@ class View
             $content = $this->layout->render();
         }
 
-        print $content;
-        return strlen($content);
+        return $content;
     }
 
     public function begin(string $name)
