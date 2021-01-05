@@ -88,12 +88,12 @@ class Layout
 
     public function js(string $resource)
     {
-        return $this->asset($resource);
+        return sprintf('<script src="%s" type="text/javascript"></script>', $this->asset($resource)).PHP_EOL;
     }
 
     public function css(string $resource)
     {
-        return $this->asset($resource);
+        return sprintf('<link rel="stylesheet" href="%s" type="text/css">', $this->asset($resource)).PHP_EOL;
     }
 
     public function partial(string $name, array $vars = [])

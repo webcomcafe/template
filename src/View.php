@@ -12,7 +12,7 @@ class View
     private array $config = [];
 
     /**
-     * @var Layout $layout
+     * @var Layout|null
      */
     private ?Layout $layout = null;
 
