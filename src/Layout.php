@@ -114,4 +114,14 @@ class Layout
         unset($this->contents[$section]);
         return $contents;
     }
+
+    private function var(string $name)
+    {
+        return $this->config['vars'][$name] ?? null;
+    }
+
+    public function __get($name)
+    {
+        return $this->var($name);
+    }
 }

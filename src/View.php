@@ -18,6 +18,8 @@ class View
 
     private array $sections = [];
 
+    private array $vars = [];
+
     /**
      * View constructor.
      * @param array $config
@@ -45,6 +47,8 @@ class View
      */
     public function render(string $tpl, array $vars = [])
     {
+        $this->vars = $vars;
+
         $path = $this->getTplPath($tpl);
 
         if( !$this->hash($path) ) {
@@ -90,19 +94,20 @@ class View
 
     private function getTplPath(string $tpl)
     {
-        //$this->config['dir'][1] = str_replace('.', DS, $this->config['dir'][1]);
         $tpl = str_replace('.', DS, $tpl);
-        // $path = implode(DS, $this->config['dir']);
         $dir = rtrim($this->config['dir'],'/');
         $ext = $this->config['ext'];
         return $dir.DS.$tpl.'.'.$ext;
     }
 
+
     /**
      * @param string $name
+     * @param array $vars
      */
-    public function layout(string $name) : void
+    public function layout(string $name, array $vars = []) : void
     {
+        $this->config['vars'] = array_merge($this->vars, $vars);
         $this->layout = new Layout($name, $this->config);
     }
 }
