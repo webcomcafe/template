@@ -14,7 +14,7 @@ class View
     /**
      * @var Layout $layout
      */
-    private Layout $layout;
+    private ?Layout $layout = null;
 
     private array $sections = [];
 
@@ -82,10 +82,10 @@ class View
 
     private function getTplPath(string $tpl)
     {
-        $this->config['dir'][1] = str_replace('.', DS, $this->config['dir'][1]);
+        //$this->config['dir'][1] = str_replace('.', DS, $this->config['dir'][1]);
         $tpl = str_replace('.', DS, $tpl);
-        $path = implode(DS, $this->config['dir']);
-        $dir = rtrim($path,'/');
+        // $path = implode(DS, $this->config['dir']);
+        $dir = rtrim($this->config['dir'],'/');
         $ext = $this->config['ext'];
         return $dir.DS.$tpl.'.'.$ext;
     }

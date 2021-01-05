@@ -38,15 +38,15 @@ class Layout
 
     private function getBaseDir(string $file)
     {
-        $path = implode(DS, $this->config['dir']).DS.$file;
-        $path = str_replace('.', DS, $path);
+        //$path = implode(DS, $this->config['dir']).DS.$file;
+        $path = $this->config['dir'].DS.$file;
         $file = $path.'.'.$this->config['ext'];
         return $file;
     }
 
     public function render()
     {
-        $file = $this->getBaseDir('layouts.' . $this->name . '.index');
+        $file = $this->getBaseDir('layouts'. DS . $this->name . DS. 'index');
 
         if( !file_exists($file) || !is_readable($file))
             throw new TemplateNotFoundException('Template ['.$this->name.'] not found');
@@ -104,8 +104,7 @@ class Layout
 
     public function asset(string $resource)
     {
-        $base = str_replace('.', '/', $this->config['dir'][1]);
-        $resource = $this->config['url'].'/'.$base.'/layouts/'.$this->name.'/'.$resource;
+        $resource = $this->config['url'].'/'.$resource;
         return $resource;
     }
 

@@ -1,4 +1,6 @@
+public/
+resources/
 app/
 vendor/
-index.php
+public/index.php
 .idea
